@@ -9,6 +9,17 @@ from .models import Note
 # Create your views here.
 
 
+
+# IMPLEMENTERA PUT OCH DELETE
+# PUT /api/notes/<id>/
+# DELETE /api/notes/<id>/
+
+
+#PUT ska hitta rätt note via id (tips loopa och jämför index) uppdatera title eller content eller båda och returnera den uppdaterade noten
+
+#DELETE hitta rätt note via id, ta bort note, returnera ett simple meddelande till user
+
+
 @csrf_exempt
 def create_note(request):
     if request.method == "GET":
