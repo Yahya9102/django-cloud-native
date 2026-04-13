@@ -36,11 +36,19 @@ def create_category(request):
                 status=400
             )
         
-        category = Category.objects.create(name=name)
-        
+
+        try:
+            category = Category.objects.create(name=name)
+        except Category.DoesNotExist:
+            return JsonResponse(
+                {"error": "category not found"},
+                status=404
+            )    
+
+
         return JsonResponse({
                 "id": category.id,
-                 "name": category.name
+                "name": category.name
                  },
                 status=201
             )    
